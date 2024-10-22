@@ -1,0 +1,29 @@
+// Función para calcular el área de un círculo
+function areaCirculo(radio) {
+    const area = Math.PI * Math.pow(radio, 2);
+    return area.toFixed(2); // Devuelve el resultado con dos decimales
+}
+
+// Función para calcular el área de un triángulo
+function areaTriangulo(base, altura) {
+    const area = (base * altura) / 2;
+    return area.toFixed(2);
+}
+
+// Función para calcular el área de un rectángulo
+function areaRectangulo(base, altura) {
+    const area = base * altura;
+    return area.toFixed(2);
+}
+
+// Ejemplo de uso:
+const radio = prompt("Ingrese el radio del círculo:");
+alert(`El área del círculo es: ${areaCirculo(radio)}`);
+
+const baseTriangulo = prompt("Ingrese la base del triángulo:");
+const alturaTriangulo = prompt("Ingrese la altura del triángulo:");
+alert(`El área del triángulo es: ${areaTriangulo(baseTriangulo, alturaTriangulo)}`);
+
+const baseRectangulo = prompt("Ingrese la base del rectángulo:");
+const alturaRectangulo = prompt("Ingrese la altura del rectángulo:");
+alert(`El área del rectángulo es: ${areaRectangulo(baseRectangulo, alturaRectangulo)}`);

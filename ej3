@@ -1,0 +1,48 @@
+// Clase Trabajador
+class Trabajador {
+    constructor(nombre, sueldo) {
+        this.nombre = nombre;
+        this.sueldo = sueldo;
+    }
+
+    // Método para mostrar detalles del trabajador
+    mostrarDetalles() {
+        console.log(`Nombre: ${this.nombre}`);
+        console.log(`Sueldo: $${this.sueldo.toFixed(2)}`);
+    }
+}
+
+// Clase Gerente que hereda de Trabajador
+class Gerente extends Trabajador {
+    constructor(nombre, sueldo, departamento) {
+        super(nombre, sueldo); // Llamada al constructor de la clase base
+        this.departamento = departamento;
+    }
+
+    // Sobrescribir el método para mostrar detalles del gerente
+    mostrarDetalles() {
+        super.mostrarDetalles(); // Llama al método de la clase base
+        console.log(`Departamento: ${this.departamento}`);
+    }
+}
+
+// Crear instancias de Trabajador
+const trabajador1 = new Trabajador("Juan Pérez", 3000);
+const trabajador2 = new Trabajador("Ana Gómez", 2800);
+
+// Crear instancias de Gerente
+const gerente1 = new Gerente("Carlos Fernández", 5000, "Ventas");
+const gerente2 = new Gerente("María López", 6000, "Recursos Humanos");
+
+// Mostrar detalles de los trabajadores
+console.log("Detalles de Trabajadores:");
+trabajador1.mostrarDetalles();
+console.log("-----------------------");
+trabajador2.mostrarDetalles();
+console.log("-----------------------");
+
+// Mostrar detalles de los gerentes
+console.log("Detalles de Gerentes:");
+gerente1.mostrarDetalles();
+console.log("-----------------------");
+gerente2.mostrarDetalles();

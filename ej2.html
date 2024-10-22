@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Inventario</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+        .product {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Inventario de Productos</h2>
+        <div id="productos"></div>
+    </div>
+
+    <script>
+        // Clase Producto
+        class Producto {
+            constructor(nombre, precio) {
+                this.nombre = nombre;
+                this.precio = precio;
+            }
+
+            // Método para mostrar los detalles del producto
+            mostrarDetalles() {
+                return `<div class="product">
+                            <strong>Nombre del producto:</strong> ${this.nombre}<br>
+                            <strong>Precio del producto:</strong> $${this.precio.toFixed(2)}
+                        </div>`;
+            }
+        }
+
+        // Crear instancias de la clase Producto
+        const producto1 = new Producto("Computador", 500000);
+        const producto2 = new Producto("Teléfono", 350000);
+        const producto3 = new Producto("Playstation", 59990);
+
+        // Obtener el contenedor para los productos
+        const contenedorProductos = document.getElementById("productos");
+
+        // Mostrar los detalles de cada producto
+        contenedorProductos.innerHTML += producto1.mostrarDetalles();
+        contenedorProductos.innerHTML += producto2.mostrarDetalles();
+        contenedorProductos.innerHTML += producto3.mostrarDetalles();
+    </script>
+</body>
+</html>

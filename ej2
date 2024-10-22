@@ -1,0 +1,25 @@
+// Clase Producto
+class Producto {
+    constructor(nombre, precio) {
+        this.nombre = nombre;
+        this.precio = precio;
+    }
+
+    // Método para mostrar los detalles del producto
+    mostrarDetalles() {
+        console.log(`Nombre del producto: ${this.nombre}`);
+        console.log(`Precio del producto: $${this.precio.toFixed(2)}`);
+    }
+}
+
+// Crear instancias de la clase Producto
+const producto1 = new Producto("Computador", 500000);
+const producto2 = new Producto("Teléfono", 350000);
+const producto3 = new Producto("Playstation", 59990);
+
+// Invocar el método para mostrar los detalles de cada producto
+producto1.mostrarDetalles();
+console.log("-----------------------");
+producto2.mostrarDetalles();
+console.log("-----------------------");
+producto3.mostrarDetalles();

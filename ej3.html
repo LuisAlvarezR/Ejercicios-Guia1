@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Trabajadores</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+        .details {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Detalles de Trabajadores y Gerentes</h2>
+        <div id="output"></div>
+    </div>
+
+    <script>
+        // Clase Trabajador
+        class Trabajador {
+            constructor(nombre, sueldo) {
+                this.nombre = nombre;
+                this.sueldo = sueldo;
+            }
+
+            // Método para mostrar detalles del trabajador
+            mostrarDetalles() {
+                return `<div class="details"><strong>Nombre:</strong> ${this.nombre}<br><strong>Sueldo:</strong> $${this.sueldo.toFixed(2)}</div>`;
+            }
+        }
+
+        // Clase Gerente que hereda de Trabajador
+        class Gerente extends Trabajador {
+            constructor(nombre, sueldo, departamento) {
+                super(nombre, sueldo); // Llamada al constructor de la clase base
+                this.departamento = departamento;
+            }
+
+            // Sobrescribir el método para mostrar detalles del gerente
+            mostrarDetalles() {
+                return `${super.mostrarDetalles()}<strong>Departamento:</strong> ${this.departamento}</div>`;
+            }
+        }
+
+        // Crear instancias de Trabajador
+        const trabajador1 = new Trabajador("Marcelo Guerrero", 750000);
+        const trabajador2 = new Trabajador("Nicole Vargas", 800000);
+
+        // Crear instancias de Gerente
+        const gerente1 = new Gerente("Carlos Trenfo", 2000000, "Ventas");
+        const gerente2 = new Gerente("Carolina Rodriguez", 1200000, "Recursos Humanos");
+
+        // Obtener el contenedor para mostrar la información
+        const output = document.getElementById("output");
+
+        // Mostrar detalles de los trabajadores y gerentes
+        output.innerHTML += "<h3>Detalles de Trabajadores:</h3>";
+        output.innerHTML += trabajador1.mostrarDetalles();
+        output.innerHTML += trabajador2.mostrarDetalles();
+
+        output.innerHTML += "<h3>Detalles de Gerentes:</h3>";
+        output.innerHTML += gerente1.mostrarDetalles();
+        output.innerHTML += gerente2.mostrarDetalles();
+    </script>
+</body>
+</html>
